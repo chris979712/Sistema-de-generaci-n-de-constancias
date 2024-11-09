@@ -14,7 +14,7 @@ public final class Cuenta {
     private static final String SOLO_LETRAS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ']+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ']+)*$";
     private static final String CONTRASENA_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=\\S+$)(?=(?:[^@$!%*?&]*[@$!%*?&]){1,3}[^@$!%*?&]*$)[a-zA-Z0-9@$!%*?&]{8,15}$";
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9]+([._][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}$";
-    private static final String SOLO_NUMEROS_PATTERN = "\\d+";
+    private static final String SOLO_NUMEROS_PATTERN = "-?\\d+";
 
     public Cuenta(){
         
@@ -33,7 +33,7 @@ public final class Cuenta {
     }
     
     public int getIdTipoDeUsuario() {
-        return idUsuario;
+        return idTipoDeUsuario;
     }
 
     public void setIdTipoDeUsuario(int idTipoDeUsuario)throws IllegalArgumentException{

@@ -10,10 +10,13 @@ import java.sql.ResultSet;
 import logicaDeNegocio.Clases.TipoDeContratacion;
 import logicaDeNegocio.Interfaces.TipoDeContratacionInterface;
 import logicaDeNegocio.Utilidades.Constantes;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Priority;
 
 public class DAOTipoDeContratacionImplementacion implements TipoDeContratacionInterface{
     
     private static final ManejadorBaseDeDatos BASE_DE_DATOS = new ManejadorBaseDeDatos();
+    private static final org.apache.log4j.Logger logger = LogManager.getLogger(DAOTipoDeContratacionImplementacion.class); 
     
     @Override
     public List<TipoDeContratacion> ObtenerTiposDeContratacion() {
@@ -27,11 +30,12 @@ public class DAOTipoDeContratacionImplementacion implements TipoDeContratacionIn
                 while(resultado.next()){
                     TipoDeContratacion tipoDeContratacionObtenida = new TipoDeContratacion();
                     tipoDeContratacionObtenida.setIdTipoContratacion(resultado.getInt("idTipoDeContratacion"));
-                    tipoDeContratacionObtenida.setTipo("tipoDeContratacion");
+                    tipoDeContratacionObtenida.setTipo(resultado.getString("tipoDeContratacion"));
                     tiposDeContratacion.add(tipoDeContratacionObtenida);
                 }
             }
         }catch(SQLException sqlException){
+            logger.log(Priority.ERROR, sqlException);
             tiposDeContratacion.add(0, tipoDeContratacionFallida);
         }
         return tiposDeContratacion;

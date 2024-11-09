@@ -6,14 +6,15 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import logicaDeNegocio.Interfaces.AlumnoImplementacion;
 import logicaDeNegocio.Utilidades.Constantes;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Priority;
 
 public class DAOAlumnoImplementacion implements AlumnoImplementacion{
 
     private static final ManejadorBaseDeDatos BASE_DE_DATOS = new ManejadorBaseDeDatos();
+    private static final org.apache.log4j.Logger logger = LogManager.getLogger(DAOAlumnoImplementacion.class); 
     
     @Override
     public Alumno ObtenerAlumnoPorNombreCompleto(String nombre) {
@@ -29,6 +30,7 @@ public class DAOAlumnoImplementacion implements AlumnoImplementacion{
                 }
             }
         } catch (SQLException ex) {
+            logger.log(Priority.ERROR, ex);
             alumnoObtenido.setIdAlumno(Constantes.OPERACION_FALLIDA);
         }
         return alumnoObtenido;
@@ -42,9 +44,9 @@ public class DAOAlumnoImplementacion implements AlumnoImplementacion{
             sentencia.setString(1, alumno.getNombreCompleto());
             resultadoInsercion = sentencia.executeUpdate();
         }catch (SQLException ex) {
+            logger.log(Priority.ERROR, ex);
             resultadoInsercion = Constantes.OPERACION_FALLIDA; 
         }
-
         return resultadoInsercion;
     }
 
@@ -53,6 +55,7 @@ public class DAOAlumnoImplementacion implements AlumnoImplementacion{
         int resultadoVerificacion = Constantes.SIN_RESULTADOS_ENCONTRADOS;
         try(Connection conexion = BASE_DE_DATOS.conectarBaseDeDatos();
             PreparedStatement sentencia = conexion.prepareStatement("Select * from alumno where nombreCompleto = ?")){
+            sentencia.setString(1, nombre);
             ResultSet resultado = sentencia.executeQuery();
             if(resultado.isBeforeFirst()){
                 while(resultado.next()){
@@ -60,6 +63,8 @@ public class DAOAlumnoImplementacion implements AlumnoImplementacion{
                 }
             }
         }catch(SQLException sqlException){
+            System.out.println(sqlException);
+            logger.log(Priority.ERROR, sqlException);
             resultadoVerificacion = Constantes.OPERACION_FALLIDA;
         }
         return resultadoVerificacion;

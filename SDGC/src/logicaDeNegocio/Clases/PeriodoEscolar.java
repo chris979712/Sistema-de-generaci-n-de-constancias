@@ -5,8 +5,9 @@ import java.util.regex.Pattern;
 public class PeriodoEscolar {
      private String periodoEscolar;
     private int idPeriodoEscolar;
-    private static final String SOLO_LETRAS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+)*$";
-    private static final String SOLO_NUMEROS_PATTERN = "\\d+";
+    private static final String LETRAS_Y_NUMEROS_PATTERN = "^[\\p{L}\\d\\sáéíóúÁÉÍÓÚüÜ'-]+(?:\\s[\\p{L}\\d\\sáéíóúÁÉÍÓÚüÜ'-]+)*$";
+    private static final String SOLO_NUMEROS_PATTERN = "-?\\d+";
+
 
     public PeriodoEscolar(){
 
@@ -22,7 +23,7 @@ public class PeriodoEscolar {
     }
 
     public void setTipo(String periodoEscolar)throws IllegalArgumentException {
-        if(periodoEscolar!=null&&!periodoEscolar.isEmpty()&&Pattern.matches(SOLO_LETRAS_PATTERN, periodoEscolar.trim())&&periodoEscolar.trim().length()<=150){
+        if(periodoEscolar!=null&&!periodoEscolar.isEmpty()&&Pattern.matches(LETRAS_Y_NUMEROS_PATTERN, periodoEscolar.trim())&&periodoEscolar.trim().length()<=150){
             this.periodoEscolar = periodoEscolar.trim().replaceAll("\\s+", " ");
         }else{
             throw new IllegalArgumentException();

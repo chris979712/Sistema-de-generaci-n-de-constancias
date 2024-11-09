@@ -10,11 +10,14 @@ import java.sql.ResultSet;
 import logicaDeNegocio.Clases.PeriodoEscolar;
 import logicaDeNegocio.Interfaces.PeriodoEscolarInterface;
 import logicaDeNegocio.Utilidades.Constantes;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Priority;
 
 
 public class DAOPeriodoEscolarImplementacion implements PeriodoEscolarInterface{
     
     private static final ManejadorBaseDeDatos BASE_DE_DATOS = new ManejadorBaseDeDatos();
+    private static final org.apache.log4j.Logger logger = LogManager.getLogger(DAOPeriodoEscolarImplementacion.class); 
     
     @Override
     public List<PeriodoEscolar> ObtenerPeriodosEscolares() {
@@ -33,6 +36,7 @@ public class DAOPeriodoEscolarImplementacion implements PeriodoEscolarInterface{
                 }
             }
         }catch(SQLException sqlException){
+            logger.log(Priority.ERROR, sqlException);
             periodoEscolarObtenido.set(0, periodoFallido);
         }
         return periodoEscolarObtenido;

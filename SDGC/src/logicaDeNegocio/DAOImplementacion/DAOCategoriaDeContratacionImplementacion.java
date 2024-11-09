@@ -10,11 +10,14 @@ import java.sql.ResultSet;
 import logicaDeNegocio.Clases.CategoriaDeContratacion;
 import logicaDeNegocio.Interfaces.CategoriaDeContratacionInterface;
 import logicaDeNegocio.Utilidades.Constantes;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Priority;
 
 
 public class DAOCategoriaDeContratacionImplementacion implements CategoriaDeContratacionInterface{
     
     private static final ManejadorBaseDeDatos BASE_DE_DATOS = new ManejadorBaseDeDatos();
+    private static final org.apache.log4j.Logger logger = LogManager.getLogger(DAOCategoriaDeContratacionImplementacion.class); 
     
     @Override
     public List<CategoriaDeContratacion> ObtenerCategoriasDeContratacion() {
@@ -33,6 +36,8 @@ public class DAOCategoriaDeContratacionImplementacion implements CategoriaDeCont
                 }
             }
         }catch(SQLException sqlException){
+            System.out.println(sqlException);
+            logger.log(Priority.ERROR, sqlException);
             categoriasObtenidas.set(0, categoriaFallida);
         }
         return categoriasObtenidas;
