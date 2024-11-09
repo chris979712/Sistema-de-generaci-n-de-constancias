@@ -1,0 +1,3 @@
+Direccion = jdbc:mysql://localhost/sdgc
+Usuario = Profesor
+Contrasenia = CoilVIC123
