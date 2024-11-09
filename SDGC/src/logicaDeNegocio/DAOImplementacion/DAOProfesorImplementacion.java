@@ -11,11 +11,14 @@ import java.sql.ResultSet;
 import logicaDeNegocio.Clases.Profesor;
 import logicaDeNegocio.Interfaces.ProfesorImplementacion;
 import logicaDeNegocio.Utilidades.Constantes;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Priority;
 
 
 public class DAOProfesorImplementacion implements ProfesorImplementacion {
 
     private static final ManejadorBaseDeDatos BASE_DE_DATOS = new ManejadorBaseDeDatos();
+    private static final org.apache.log4j.Logger logger = LogManager.getLogger(DAOProfesorImplementacion.class); 
     
     @Override
     public int RegistrarProfesor(Profesor profesor, String contrasenia) {
@@ -52,8 +55,10 @@ public class DAOProfesorImplementacion implements ProfesorImplementacion {
             try{
                 BASE_DE_DATOS.conectarBaseDeDatos().rollback();
             }catch(SQLException rollbackException){
+               logger.log(Priority.ERROR, rollbackException);
                resultadoInsercion = Constantes.OPERACION_FALLIDA;
             }
+            logger.log(Priority.ERROR, sqlException);
             resultadoInsercion = Constantes.OPERACION_FALLIDA;
         }
         return resultadoInsercion;
@@ -72,6 +77,7 @@ public class DAOProfesorImplementacion implements ProfesorImplementacion {
                 }
             }
         }catch(SQLException sqlException){
+            logger.log(Priority.ERROR, sqlException);
             resultadoVerificacion = Constantes.OPERACION_FALLIDA;
         }
         return resultadoVerificacion;
@@ -99,6 +105,7 @@ public class DAOProfesorImplementacion implements ProfesorImplementacion {
                 }
             }
         }catch(SQLException sqlException){
+            logger.log(Priority.ERROR, sqlException);
             profesorObtenido.setIdProfesor(Constantes.OPERACION_FALLIDA);
         }
         return profesorObtenido;
@@ -128,6 +135,7 @@ public class DAOProfesorImplementacion implements ProfesorImplementacion {
                 }
             }
         }catch(SQLException sqlException){
+            logger.log(Priority.ERROR, sqlException);
             profesoresObtenidos.add(0, profesorObtenidoFallo);
         }
         return profesoresObtenidos;

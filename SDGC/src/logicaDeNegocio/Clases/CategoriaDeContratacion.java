@@ -5,8 +5,9 @@ import java.util.regex.Pattern;
 public class CategoriaDeContratacion {
     private String tipoCategoriaDeContratacion;
     private int idCategoriaDeContratacion;
-    private static final String SOLO_LETRAS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+)*$";
-    private static final String SOLO_NUMEROS_PATTERN = "\\d+";
+    private static final String SOLO_LETRAS_Y_NUMEROS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-\\.\\d]+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-\\.\\d]+)*$";
+    private static final String SOLO_NUMEROS_PATTERN = "-?\\d+";
+
 
     public CategoriaDeContratacion(){
 
@@ -22,7 +23,7 @@ public class CategoriaDeContratacion {
     }
 
     public void setTipo(String tipoCategoriaDeContratacion)throws IllegalArgumentException {
-        if(tipoCategoriaDeContratacion!=null&&!tipoCategoriaDeContratacion.isEmpty()&&Pattern.matches(SOLO_LETRAS_PATTERN, tipoCategoriaDeContratacion.trim())&&tipoCategoriaDeContratacion.trim().length()<=150){
+        if(tipoCategoriaDeContratacion!=null&&!tipoCategoriaDeContratacion.isEmpty()&&Pattern.matches(SOLO_LETRAS_Y_NUMEROS_PATTERN, tipoCategoriaDeContratacion.trim())&&tipoCategoriaDeContratacion.trim().length()<=150){
             this.tipoCategoriaDeContratacion = tipoCategoriaDeContratacion.trim().replaceAll("\\s+", " ");
         }else{
             throw new IllegalArgumentException();

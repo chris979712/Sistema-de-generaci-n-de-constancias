@@ -1,5 +1,6 @@
 package logicaDeNegocio.Clases;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 
@@ -15,8 +16,8 @@ public class Profesor {
     private int CategoriaDeContracion_idCategoriaDeContratacion;
     private int TipoDeContratacion_idTipoDeContratacion;
     private static final String SOLO_LETRAS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+)*$";
-    private static final String SOLO_NUMEROS_PATTERN = "\\d+";
-     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9]+([._][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}$";
+    private static final String SOLO_NUMEROS_PATTERN = "-?\\d+";
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9]+([._][a-zA-Z0-9]+)*@[a-zA-Z0-9]+(\\.[a-zA-Z0-9]+)*\\.[a-zA-Z]{2,}$";
      
     public int getIdProfesor() {
         return idProfesor;
@@ -126,6 +127,53 @@ public class Profesor {
             throw new IllegalArgumentException();
         }
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Profesor other = (Profesor) obj;
+        if (this.idProfesor != other.idProfesor) {
+            return false;
+        }
+        if (this.Cuenta_idCuenta != other.Cuenta_idCuenta) {
+            return false;
+        }
+        if (this.CategoriaDeContracion_idCategoriaDeContratacion != other.CategoriaDeContracion_idCategoriaDeContratacion) {
+            return false;
+        }
+        if (this.TipoDeContratacion_idTipoDeContratacion != other.TipoDeContratacion_idTipoDeContratacion) {
+            return false;
+        }
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        if (!Objects.equals(this.primerApellido, other.primerApellido)) {
+            return false;
+        }
+        if (!Objects.equals(this.segundoApellido, other.segundoApellido)) {
+            return false;
+        }
+        if (!Objects.equals(this.correoInstitucional, other.correoInstitucional)) {
+            return false;
+        }
+        return Objects.equals(this.numeroDePersonal, other.numeroDePersonal);
+    }
+    
+    
     
     
 }

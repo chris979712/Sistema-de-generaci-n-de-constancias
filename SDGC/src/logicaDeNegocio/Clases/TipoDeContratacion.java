@@ -8,7 +8,8 @@ public class TipoDeContratacion {
     private String tipoDeContratacion;
     private int idTipoContratacion;
     private static final String SOLO_LETRAS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+)*$";
-    private static final String SOLO_NUMEROS_PATTERN = "\\d+";
+    private static final String SOLO_NUMEROS_PATTERN = "-?\\d+";
+
 
     public TipoDeContratacion(){
 
