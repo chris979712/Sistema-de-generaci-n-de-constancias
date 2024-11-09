@@ -9,6 +9,7 @@ public final class Cuenta {
     private String nombreUsuario;
     private String contrasenia;
     private String tipoDeUsuario;
+    private int idTipoDeUsuario;
     private String correo;
     private static final String SOLO_LETRAS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ']+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ']+)*$";
     private static final String CONTRASENA_PATTERN = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=\\S+$)(?=(?:[^@$!%*?&]*[@$!%*?&]){1,3}[^@$!%*?&]*$)[a-zA-Z0-9@$!%*?&]{8,15}$";
@@ -26,6 +27,18 @@ public final class Cuenta {
     public void setIdUsuario(int idUsuario)throws IllegalArgumentException{
         if(Pattern.matches(SOLO_NUMEROS_PATTERN, String.valueOf(idUsuario))){
             this.idUsuario = idUsuario;
+        }else{
+            throw new IllegalArgumentException();
+        }
+    }
+    
+    public int getIdTipoDeUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdTipoDeUsuario(int idTipoDeUsuario)throws IllegalArgumentException{
+        if(Pattern.matches(SOLO_NUMEROS_PATTERN, String.valueOf(idTipoDeUsuario))){
+            this.idTipoDeUsuario = idTipoDeUsuario;
         }else{
             throw new IllegalArgumentException();
         }
