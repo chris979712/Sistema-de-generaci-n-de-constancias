@@ -31,11 +31,11 @@ public class TipoDeContratacion {
         }
     }    
 
-    public int getIdTipoColaboracion() {
+    public int getIdTipoContratacion() {
         return idTipoContratacion;
     }
 
-    public void setIdTipoColaboracion(int idTipoContratacion)throws IllegalArgumentException {
+    public void setIdTipoContratacion(int idTipoContratacion)throws IllegalArgumentException {
         if(Pattern.matches(SOLO_NUMEROS_PATTERN, String.valueOf(idTipoContratacion))){
             this.idTipoContratacion = idTipoContratacion;
         }else{
@@ -53,7 +53,7 @@ public class TipoDeContratacion {
             return false;
         }
         return tipoDeContratacion.equals(tipoDeContratacionTemporal.getTipo())&&
-                idTipoContratacion==tipoDeContratacionTemporal.getIdTipoColaboracion();
+                idTipoContratacion==tipoDeContratacionTemporal.getIdTipoContratacion();
     }
     
     @Override

@@ -6,7 +6,6 @@ import java.util.regex.Pattern;
 public class Alumno {
    private String nombreCompleto;
     private int idAlumno;
-    private int idTrabajoRecepcional;
     private static final String SOLO_LETRAS_PATTERN = "^[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+(?:\\s[\\p{L}\\sáéíóúÁÉÍÓÚüÜ'-]+)*$";
     private static final String SOLO_NUMEROS_PATTERN = "\\d+";
 
@@ -19,23 +18,11 @@ public class Alumno {
         this.nombreCompleto=nombreCompleto;
     }
     
-    public int getIdTrabajoRecepcional() {
-        return idTrabajoRecepcional;
-    }
-
-    public void setIdTrabajoRecepcional(int idTrabajoRecepcional)throws IllegalArgumentException {
-        if(Pattern.matches(SOLO_NUMEROS_PATTERN, String.valueOf(idTrabajoRecepcional))){
-            this.idTrabajoRecepcional = idTrabajoRecepcional;
-        }else{
-            throw new IllegalArgumentException();
-        }
-    }
-    
-    public String getTipo() {
+    public String getNombreCompleto() {
         return nombreCompleto;
     }
 
-    public void setTipo(String nombreCompleto)throws IllegalArgumentException {
+    public void setNombreCompleto(String nombreCompleto)throws IllegalArgumentException {
         if(nombreCompleto!=null&&!nombreCompleto.isEmpty()&&Pattern.matches(SOLO_LETRAS_PATTERN, nombreCompleto.trim())&&nombreCompleto.trim().length()<=150){
             this.nombreCompleto = nombreCompleto.trim().replaceAll("\\s+", " ");
         }else{
@@ -43,11 +30,11 @@ public class Alumno {
         }
     }    
 
-    public int getIdTipoColaboracion() {
+    public int getIdAlumno() {
         return idAlumno;
     }
 
-    public void setIdTipoColaboracion(int idAlumno)throws IllegalArgumentException {
+    public void setIdAlumno(int idAlumno)throws IllegalArgumentException {
         if(Pattern.matches(SOLO_NUMEROS_PATTERN, String.valueOf(idAlumno))){
             this.idAlumno = idAlumno;
         }else{
@@ -61,11 +48,11 @@ public class Alumno {
             return false;
         }
         Alumno nombreCompletoTemporal=(Alumno)obj;
-        if(nombreCompleto==null||nombreCompletoTemporal.getTipo()==null){
+        if(nombreCompleto==null||nombreCompletoTemporal.getNombreCompleto()==null){
             return false;
         }
-        return nombreCompleto.equals(nombreCompletoTemporal.getTipo())&&
-                idAlumno==nombreCompletoTemporal.getIdTipoColaboracion();
+        return nombreCompleto.equals(nombreCompletoTemporal.getNombreCompleto())&&
+                idAlumno==nombreCompletoTemporal.getIdAlumno();
     }
     
     @Override

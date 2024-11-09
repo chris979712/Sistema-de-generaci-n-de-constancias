@@ -33,7 +33,7 @@ public class PeriodoEscolar {
         return idPeriodoEscolar;
     }
 
-    public void setIdTipoColaboracion(int idPeriodoEscolar)throws IllegalArgumentException {
+    public void setIdPeriodoEscolar(int idPeriodoEscolar)throws IllegalArgumentException {
         if(Pattern.matches(SOLO_NUMEROS_PATTERN, String.valueOf(idPeriodoEscolar))){
             this.idPeriodoEscolar = idPeriodoEscolar;
         }else{
