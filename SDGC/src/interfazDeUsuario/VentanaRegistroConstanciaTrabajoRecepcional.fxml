@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="interfazDeUsuario.Controladores.VentanaRegistroConstanciaTrabajoRecepcionalControlador">
+   <children>
+      <Pane prefHeight="90.0" prefWidth="700.0" style="-fx-background-color: #0085FC;">
+         <children>
+            <Label layoutX="99.0" layoutY="27.0" text="Registro de constancia de trabajo recepcional" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField layoutX="59.0" layoutY="108.0" prefHeight="25.0" prefWidth="272.0" promptText="Buscar docente" />
+      <Label layoutX="59.0" layoutY="143.0" prefHeight="17.0" prefWidth="272.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox layoutX="350.0" layoutY="141.0" prefHeight="25.0" prefWidth="124.0" promptText="Cargo" />
+      <DatePicker layoutX="512.0" layoutY="141.0" prefHeight="25.0" prefWidth="161.0" promptText="Fecha de presentación" />
+      <Label layoutX="59.0" layoutY="184.0" text="Título:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="121.0" layoutY="182.0" prefHeight="32.0" prefWidth="557.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="59.0" layoutY="227.0" text="Modalidad:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="168.0" layoutY="225.0" prefHeight="32.0" prefWidth="511.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="59.0" layoutY="273.0" text="Resultado obtenido:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="243.0" layoutY="274.0" prefHeight="32.0" prefWidth="437.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Label layoutX="59.0" layoutY="319.0" text="Nombre del alumno:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="243.0" layoutY="320.0" prefHeight="32.0" prefWidth="437.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button layoutX="195.0" layoutY="375.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #33A64C;" text="Guardar" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="384.0" layoutY="375.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #DB2843;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

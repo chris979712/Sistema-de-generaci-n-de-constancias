@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazDeUsuario.Controladores.VentanaRegistroDocenteControlador">
+   <children>
+      <Pane layoutY="-7.0" prefHeight="90.0" prefWidth="882.0" style="-fx-background-color: #0085FC;">
+         <children>
+            <Label layoutX="323.0" layoutY="29.0" text="Registro de docente" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="77.0" fitWidth="135.0" layoutX="758.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Imagenes/docenteIcono.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label layoutX="73.0" layoutY="112.0" text="Nombre(s):">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="73.0" layoutY="162.0" text="Primer apellido:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="73.0" layoutY="204.0" text="Segundo apellido:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="71.0" layoutY="249.0" text="No. de personal:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="331.0" layoutY="250.0" text="Correo institucional:">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmb_tipoContratacion" layoutX="73.0" layoutY="297.0" prefHeight="25.0" prefWidth="170.0" promptText="Tipo de contratación" />
+      <ComboBox fx:id="cmb_categoriaContratacion" layoutX="301.0" layoutY="297.0" prefHeight="25.0" prefWidth="191.0" promptText="Categoría de contratación" />
+      <TextField fx:id="txf_nombre" layoutX="190.0" layoutY="111.0" prefHeight="32.0" prefWidth="619.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txf_primerApellido" layoutX="236.0" layoutY="160.0" prefHeight="32.0" prefWidth="573.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txf_segundoApellido" layoutX="255.0" layoutY="203.0" prefHeight="32.0" prefWidth="555.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txf_numeroPersonal" layoutX="236.0" layoutY="249.0" prefHeight="32.0" prefWidth="81.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txf_correo" layoutX="529.0" layoutY="249.0" prefHeight="32.0" prefWidth="282.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextField>
+      <Button fx:id="btn_guardar" layoutX="301.0" layoutY="359.0" mnemonicParsing="false" onAction="#verificarCampos" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #33A64C;" text="Guardar" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="btn_cancelar" layoutX="492.0" layoutY="359.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #DB2843;" text="Cancelar" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
