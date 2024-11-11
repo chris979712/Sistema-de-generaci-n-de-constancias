@@ -1,0 +1,3 @@
+
+[2024-11-09 18:10:00] [ FATAL] [ManejadorBaseDeDatos:39] java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost/sdgc
+[2024-11-09 18:12:51] [ FATAL] [ManejadorBaseDeDatos:39] java.sql.SQLException: No suitable driver found for jdbc:mysql://localhost/sdgc
