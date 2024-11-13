@@ -67,7 +67,7 @@ public class PruebaDAOTrabajoRecepcionalImplementacion {
         trabajoObtenido.setAlumno(alumno);
         PeriodoEscolar periodoObtenido = new PeriodoEscolar();
         periodoObtenido.setIdPeriodoEscolar(2);
-        periodoObtenido.setTipo("FEB2023-JUL2023");
+        periodoObtenido.setPeriodoEscolar("FEB2023-JUL2023");
         trabajoObtenido.setPeriodoEscolar(periodoObtenido);
         Profesor profesorObtenido = new Profesor();
         profesorObtenido.setIdProfesor(1);

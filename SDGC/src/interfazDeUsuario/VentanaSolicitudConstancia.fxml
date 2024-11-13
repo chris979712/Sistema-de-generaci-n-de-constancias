@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazDeUsuario.Controladores.VentanaSolicitudConstanciaControlador">
+<AnchorPane id="AnchorPane" fx:id="ventanaSolicitudConstancia" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazDeUsuario.Controladores.VentanaSolicitudConstanciaControlador">
    <children>
       <Pane layoutY="-10.0" prefHeight="90.0" prefWidth="706.0" style="-fx-background-color: #0085FC;">
          <children>
@@ -65,7 +65,7 @@
             <Font size="20.0" />
          </font>
       </Button>
-      <Button fx:id="btn_regresar" layoutX="585.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: #DB2843;" text="Regresar" textFill="WHITE">
+      <Button fx:id="btn_regresar" layoutX="585.0" layoutY="380.0" mnemonicParsing="false" onAction="#salirAlMenuPrincipal" style="-fx-background-color: #DB2843;" text="Regresar" textFill="WHITE">
          <font>
             <Font size="15.0" />
          </font>

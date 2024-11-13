@@ -19,7 +19,7 @@ public class DAOCuentaImplementacion implements CuentaInterface{
     
     @Override
     public int ValidarCredenciales(Cuenta cuenta, Cuenta logger) {
-        int resultadoValidacion = Constantes.OPERACION_FALLIDA;
+        int resultadoValidacion = 0;
         try(Connection conexion = BASE_DE_DATOS.conectarBaseDeDatosLogger(logger);
             PreparedStatement sentencia = conexion.prepareStatement("Select * from cuenta where usuario = ? and contrasenia = sha2(?,?)")){
             sentencia.setString(1,cuenta.getNombreUsuario());
@@ -35,8 +35,7 @@ public class DAOCuentaImplementacion implements CuentaInterface{
             }else{
                 resultadoValidacion = 0;
             }
-        }catch(SQLException sqlException){
-            System.out.println(sqlException);
+        }catch(SQLException sqlException){            
             log.log(Priority.ERROR, sqlException);
             resultadoValidacion = Constantes.OPERACION_FALLIDA;
         }
