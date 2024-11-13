@@ -307,7 +307,5 @@ public class VentanaRegistroConstanciaTrabajoRecepcionalControlador implements I
     private void cerrarVentana(){
         escenario = (Stage) ventanaRegistroConstancia.getScene().getWindow();
         escenario.close();        
-    }
-        
-    
+    }           
 }

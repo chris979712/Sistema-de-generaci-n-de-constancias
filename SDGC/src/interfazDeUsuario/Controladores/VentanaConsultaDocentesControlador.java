@@ -10,6 +10,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -22,18 +26,19 @@ import logicaDeNegocio.DAOImplementacion.DAOProfesorImplementacion;
 
 public class VentanaConsultaDocentesControlador implements Initializable {
     private Stage escenario;
-    
+  
     @FXML
     private Button btn_regresar;
 
     @FXML
+
     private TableColumn column_correo;
 
     @FXML
     private TableColumn column_nombre;
 
     @FXML
-    private TableView<Profesor> table_docente;
+    private TableView<Profesor> table_docente;  
 
     @FXML
     private TextField txf_busquedaDocente;
@@ -124,6 +129,5 @@ public class VentanaConsultaDocentesControlador implements Initializable {
     private void cerrarVentana(){
         escenario = (Stage) ventanaConsultaDocentes.getScene().getWindow();
         escenario.close();        
-    }
-    
+    }    
 }

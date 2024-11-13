@@ -210,6 +210,5 @@ public class VentanaRegistroDocenteControlador implements Initializable {
             categoriasContratacionObservable.add(categoriaContratacion.getTipo());
         }
         cmb_categoriaContratacion.setItems(categoriasContratacionObservable);                       
-    } 
-    
+    }             
 }

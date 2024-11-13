@@ -96,6 +96,5 @@ public class VentanaSolicitudConstanciaControlador implements Initializable {
     private void cerrarVentana(){
         escenario = (Stage) ventanaSolicitudConstancia.getScene().getWindow();
         escenario.close();        
-    }
-    
+    }    
 }

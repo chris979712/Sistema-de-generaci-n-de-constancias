@@ -111,6 +111,7 @@ public class Alertas extends Application {
         });
     }      
         
+
     public static void mostrarRegistroConstanciaExitoso(){
         Platform.runLater(() -> {
             Alert mensaje = new Alert(AlertType.INFORMATION);
@@ -119,8 +120,7 @@ public class Alertas extends Application {
             mensaje.showAndWait();
         });
     }
-    
-    
+
     public static void mostrarMensajeErrorAlObtenerDatos(){
         Platform.runLater(() -> {
             Alert mensaje = new Alert(AlertType.ERROR);

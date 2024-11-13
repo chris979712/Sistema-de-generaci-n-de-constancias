@@ -13,9 +13,16 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import logicaDeNegocio.Clases.CuentaSingleton;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+
 
 public class VentanaMenuPersonalAdministrativoControlador implements Initializable {    
     private Stage escenario;    
+  
     @FXML
     private Button btn_registrarConstanciaTrabajo;
 
@@ -102,4 +109,5 @@ public class VentanaMenuPersonalAdministrativoControlador implements Initializab
         escenario = (Stage) ventanaMenuPersonalAdministrativo.getScene().getWindow();
         escenario.close();        
     }
+
 }
