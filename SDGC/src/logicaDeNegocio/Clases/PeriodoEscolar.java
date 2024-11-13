@@ -18,11 +18,11 @@ public class PeriodoEscolar {
         this.periodoEscolar=periodoEscolar;
     }
     
-    public String getTipo() {
+    public String getPeriodoEscolar() {
         return periodoEscolar;
     }
 
-    public void setTipo(String periodoEscolar)throws IllegalArgumentException {
+    public void setPeriodoEscolar(String periodoEscolar)throws IllegalArgumentException {
         if(periodoEscolar!=null&&!periodoEscolar.isEmpty()&&Pattern.matches(LETRAS_Y_NUMEROS_PATTERN, periodoEscolar.trim())&&periodoEscolar.trim().length()<=150){
             this.periodoEscolar = periodoEscolar.trim().replaceAll("\\s+", " ");
         }else{
@@ -30,7 +30,7 @@ public class PeriodoEscolar {
         }
     }    
 
-    public int getIdTipoColaboracion() {
+    public int getIdPeriodoEscolar() {
         return idPeriodoEscolar;
     }
 
@@ -48,11 +48,11 @@ public class PeriodoEscolar {
             return false;
         }
         PeriodoEscolar periodoEscolarTemporal=(PeriodoEscolar)obj;
-        if(periodoEscolar==null||periodoEscolarTemporal.getTipo()==null){
+        if(periodoEscolar==null||periodoEscolarTemporal.getPeriodoEscolar()==null){
             return false;
         }
-        return periodoEscolar.equals(periodoEscolarTemporal.getTipo())&&
-                idPeriodoEscolar==periodoEscolarTemporal.getIdTipoColaboracion();
+        return periodoEscolar.equals(periodoEscolarTemporal.getPeriodoEscolar())&&
+                idPeriodoEscolar==periodoEscolarTemporal.getIdPeriodoEscolar();
     }
     
     @Override

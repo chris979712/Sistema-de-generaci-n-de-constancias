@@ -25,16 +25,16 @@ public class PruebaDAOPeriodoEscolarImplementacion {
     public void PruebaObtenerPeriodosEscolaresExitosa(){
         List<PeriodoEscolar> periodosEsperados = new ArrayList<PeriodoEscolar>();
         PeriodoEscolar periodoEscolar1 = new PeriodoEscolar();
-        periodoEscolar1.setTipo("AGO2022-ENE2023");
+        periodoEscolar1.setPeriodoEscolar("AGO2022-ENE2023");
         periodoEscolar1.setIdPeriodoEscolar(1);
         PeriodoEscolar periodoEscolar2 = new PeriodoEscolar();
-        periodoEscolar2.setTipo("FEB2023-JUL2023");
+        periodoEscolar2.setPeriodoEscolar("FEB2023-JUL2023");
         periodoEscolar2.setIdPeriodoEscolar(2);
         PeriodoEscolar periodoEscolar3 = new PeriodoEscolar();
-        periodoEscolar3.setTipo("AGO2023-ENE2024");
+        periodoEscolar3.setPeriodoEscolar("AGO2023-ENE2024");
         periodoEscolar3.setIdPeriodoEscolar(3);
         PeriodoEscolar periodoEscolar4 = new PeriodoEscolar();
-        periodoEscolar4.setTipo("FEB2024-JUL2024");
+        periodoEscolar4.setPeriodoEscolar("FEB2024-JUL2024");
         periodoEscolar4.setIdPeriodoEscolar(4);
         periodosEsperados.add(periodoEscolar1);
         periodosEsperados.add(periodoEscolar2);

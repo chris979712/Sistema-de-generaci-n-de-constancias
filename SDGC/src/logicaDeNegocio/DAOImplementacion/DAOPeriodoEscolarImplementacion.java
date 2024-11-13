@@ -30,7 +30,7 @@ public class DAOPeriodoEscolarImplementacion implements PeriodoEscolarInterface{
             if(resultado.isBeforeFirst()){
                 while(resultado.next()){
                     PeriodoEscolar periodoObtenido = new PeriodoEscolar();
-                    periodoObtenido.setTipo(resultado.getString("periodoEscolar"));
+                    periodoObtenido.setPeriodoEscolar(resultado.getString("periodoEscolar"));
                     periodoObtenido.setIdPeriodoEscolar(resultado.getInt("idPeriodoEscolar"));
                     periodoEscolarObtenido.add(periodoObtenido);
                 }

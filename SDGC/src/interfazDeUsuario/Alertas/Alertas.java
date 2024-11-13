@@ -15,7 +15,7 @@ public class Alertas extends Application {
         Platform.runLater(() -> {
             Alert mensaje = new Alert(AlertType.ERROR);
             mensaje.setTitle("Usuario no encontrado");
-            mensaje.setContentText("El usuario no se ha podido conectar a la base de datos\nInténtelo más tarde.");
+            mensaje.setContentText("El usuario no ha sido encontrado\nVerifique la información de los campos.");
             mensaje.showAndWait();
         });
     }
@@ -56,11 +56,11 @@ public class Alertas extends Application {
         });
     }
     
-    public static void mostrarMensajeProfesorConUsuario(){
+    public static void mostrarMensajeDocenteConCuenta(){
         Platform.runLater(() ->{
             Alert mensaje = new Alert(AlertType.ERROR);
-            mensaje.setTitle("Profesor con usuario");
-            mensaje.setContentText("El profesor al que desea asignar un usuario, ya cuenta con una cuenta");
+            mensaje.setTitle("Docente con cuenta");
+            mensaje.setContentText("El docente a ingresar, ya tiene una cuenta");
             mensaje.showAndWait();
         });
     }
@@ -102,15 +102,25 @@ public class Alertas extends Application {
         });
     }
     
-    public static void mostrarRegistroProfesorExitoso(){
+    public static void mostrarRegistroDocenteExitoso(){
         Platform.runLater(() -> {
             Alert mensaje = new Alert(AlertType.INFORMATION);
-            mensaje.setTitle("Registro de profesor correcto");
-            mensaje.setContentText("El profesor fue registrado correctamente");
+            mensaje.setTitle("Registro de docente exitoso");
+            mensaje.setContentText("El docente fue registrado correctamente");
             mensaje.showAndWait();
         });
     }      
         
+    public static void mostrarRegistroConstanciaExitoso(){
+        Platform.runLater(() -> {
+            Alert mensaje = new Alert(AlertType.INFORMATION);
+            mensaje.setTitle("Registro de constancia exitoso");
+            mensaje.setContentText("La constancia fue registrado correctamente");
+            mensaje.showAndWait();
+        });
+    }
+    
+    
     public static void mostrarMensajeErrorAlObtenerDatos(){
         Platform.runLater(() -> {
             Alert mensaje = new Alert(AlertType.ERROR);

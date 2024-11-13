@@ -60,7 +60,7 @@ public class Profesor {
     }
 
     public void setSegundoApellido(String segundoApellido) {
-        if(segundoApellido!=null&&!segundoApellido.isEmpty()&&Pattern.matches(SOLO_LETRAS_PATTERN, segundoApellido.trim())&&segundoApellido.trim().length()<=150){
+        if(segundoApellido!=null&&!segundoApellido.isEmpty()&&Pattern.matches(SOLO_LETRAS_PATTERN, segundoApellido.trim())&&segundoApellido.trim().length()<=150||segundoApellido.isEmpty()){
             this.segundoApellido = segundoApellido.trim().replaceAll("\\s+", " ");
         }else{
             throw new IllegalArgumentException();
@@ -173,6 +173,16 @@ public class Profesor {
         return Objects.equals(this.numeroDePersonal, other.numeroDePersonal);
     }
     
+    public String getNombreCompleto() {
+        String nombreCompleto;
+        if (!segundoApellido.isEmpty()) {
+            nombreCompleto= nombre + " " + primerApellido + " " + segundoApellido;
+        } else {
+            nombreCompleto= nombre + " " + primerApellido;
+        }
+        return nombreCompleto;
+    }
+
     
     
     

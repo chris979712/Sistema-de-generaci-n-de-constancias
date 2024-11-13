@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class Inicializador extends Application {    
     @Override
     public void start(Stage stage) throws IOException {
-        Parent root=FXMLLoader.load(getClass().getResource("/interfazDeUsuario/VentanaRegistroDocente.fxml"));        
+        Parent root=FXMLLoader.load(getClass().getResource("/interfazDeUsuario/VentanaInicioSesion.fxml"));        
         Scene scene = new Scene(root);
         stage.setScene(scene);  
         stage.show();                          

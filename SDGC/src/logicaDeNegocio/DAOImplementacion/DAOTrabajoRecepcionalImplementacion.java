@@ -35,7 +35,7 @@ public class DAOTrabajoRecepcionalImplementacion implements TrabajoRecepcionalIn
     
     @Override
     public int RegistrarTrabajoRecepcional(TrabajoRecepcional trabajo) {
-        int resultadoInsercion = Constantes.OPERACION_FALLIDA;
+        int resultadoInsercion = Constantes.SIN_RESULTADOS_ENCONTRADOS;
         try(Connection conexion = BASE_DE_DATOS.conectarBaseDeDatos();
             PreparedStatement sentencia = conexion.prepareStatement("Insert into TrabajoRecepcional (modalidad,resultadoObtenido,tituloDeTrabajo,fechaDePresentación,"
                     + "Profesor_Profesor,PeriodoEscolar_idPeriodoEscolar,Alumno_idAlumno, carrera, rol) values (?,?,?,?,?,?,?,?,?)")){
@@ -44,7 +44,7 @@ public class DAOTrabajoRecepcionalImplementacion implements TrabajoRecepcionalIn
             sentencia.setString(3, trabajo.getTituloDeTrabajo());
             sentencia.setString(4, trabajo.getFechaDePresentacion());
             sentencia.setInt(5, trabajo.getProfesor().getIdProfesor());
-            sentencia.setInt(6, trabajo.getPeriodoEscolar().getIdTipoColaboracion());
+            sentencia.setInt(6, trabajo.getPeriodoEscolar().getIdPeriodoEscolar());
             sentencia.setInt(7, trabajo.getAlumno().getIdAlumno());
             sentencia.setString(8, trabajo.getCarrera());
             sentencia.setString(9, trabajo.getRol());
@@ -63,7 +63,7 @@ public class DAOTrabajoRecepcionalImplementacion implements TrabajoRecepcionalIn
         try(Connection conexion = BASE_DE_DATOS.conectarBaseDeDatos();
             PreparedStatement sentencia = conexion.prepareStatement("Select * from TrabajoRecepcional where Profesor_Profesor = ? and PeriodoEscolar_idPeriodoEscolar = ?")){
             sentencia.setInt(1, profesor.getIdProfesor());
-            sentencia.setInt(2, periodo.getIdTipoColaboracion());
+            sentencia.setInt(2, periodo.getIdPeriodoEscolar());
             ResultSet trabajosObtenidos = sentencia.executeQuery();
             if(trabajosObtenidos.isBeforeFirst()){
                 while(trabajosObtenidos.next()){
@@ -84,7 +84,7 @@ public class DAOTrabajoRecepcionalImplementacion implements TrabajoRecepcionalIn
         trabajoRecepcionalFallido.setIdTrabajoRecepcional(Constantes.OPERACION_FALLIDA);
         try(Connection conexion = BASE_DE_DATOS.conectarBaseDeDatos();
             PreparedStatement sentencia = conexion.prepareStatement(QueryParaObtenerLosTrabajosRecepcionalesDelProfesor)){
-            sentencia.setInt(1, periodo.getIdTipoColaboracion());
+            sentencia.setInt(1, periodo.getIdPeriodoEscolar());
             sentencia.setInt(2, profesor.getIdProfesor());
             ResultSet trabajosObtenidos = sentencia.executeQuery();
             if(trabajosObtenidos.isBeforeFirst()){
@@ -103,7 +103,7 @@ public class DAOTrabajoRecepcionalImplementacion implements TrabajoRecepcionalIn
                     trabajoObtenido.setAlumno(alumno);  
                     PeriodoEscolar periodoObtenido = new PeriodoEscolar();
                     periodoObtenido.setIdPeriodoEscolar(trabajosObtenidos.getInt("idPeriodoEscolar"));
-                    periodoObtenido.setTipo(trabajosObtenidos.getString("periodoEscolar"));
+                    periodoObtenido.setPeriodoEscolar(trabajosObtenidos.getString("periodoEscolar"));
                     trabajoObtenido.setPeriodoEscolar(periodoObtenido); 
                     Profesor profesorObtenido = new Profesor();
                     profesorObtenido.setIdProfesor(trabajosObtenidos.getInt("Profesor"));

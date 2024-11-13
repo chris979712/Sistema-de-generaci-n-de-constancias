@@ -9,8 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="450.0" prefWidth="700.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="interfazDeUsuario.Controladores.VentanaRegistroConstanciaTrabajoRecepcionalControlador">
+<AnchorPane id="AnchorPane" fx:id="ventanaRegistroConstancia" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazDeUsuario.Controladores.VentanaRegistroConstanciaTrabajoRecepcionalControlador">
    <children>
       <Pane prefHeight="90.0" prefWidth="700.0" style="-fx-background-color: #0085FC;">
          <children>
@@ -21,20 +20,23 @@
             </Label>
          </children>
       </Pane>
-      <TextField layoutX="59.0" layoutY="108.0" prefHeight="25.0" prefWidth="272.0" promptText="Buscar docente" />
-      <Label layoutX="59.0" layoutY="143.0" prefHeight="17.0" prefWidth="272.0">
+      <TextField fx:id="txf_busquedaDocente" layoutX="59.0" layoutY="108.0" prefHeight="32.0" prefWidth="253.0" promptText="Buscar docente">
+         <font>
+            <Font size="15.0" />
+         </font></TextField>
+      <Label fx:id="lbl_nombreDocente" layoutX="59.0" layoutY="143.0" prefHeight="27.0" prefWidth="272.0">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <ComboBox layoutX="350.0" layoutY="141.0" prefHeight="25.0" prefWidth="124.0" promptText="Cargo" />
-      <DatePicker layoutX="512.0" layoutY="141.0" prefHeight="25.0" prefWidth="161.0" promptText="Fecha de presentación" />
+      <ComboBox fx:id="cmb_cargo" layoutX="331.0" layoutY="106.0" prefHeight="35.0" prefWidth="161.0" promptText="Cargo" stylesheets="@ComboBoxEstilo.css" />
+      <DatePicker fx:id="dtp_fechaPresentacion" layoutX="509.0" layoutY="111.0" prefHeight="25.0" prefWidth="171.0" promptText="Fecha de presentación" />
       <Label layoutX="59.0" layoutY="184.0" text="Título:">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="121.0" layoutY="182.0" prefHeight="32.0" prefWidth="557.0">
+      <TextField fx:id="txf_titulo" layoutX="121.0" layoutY="182.0" prefHeight="32.0" prefWidth="557.0">
          <font>
             <Font size="15.0" />
          </font>
@@ -44,7 +46,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="168.0" layoutY="225.0" prefHeight="32.0" prefWidth="511.0">
+      <TextField fx:id="txf_modalidad" layoutX="168.0" layoutY="225.0" prefHeight="32.0" prefWidth="511.0">
          <font>
             <Font size="15.0" />
          </font>
@@ -54,7 +56,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="243.0" layoutY="274.0" prefHeight="32.0" prefWidth="437.0">
+      <TextField fx:id="txf_resultadoObtenido" layoutX="243.0" layoutY="274.0" prefHeight="32.0" prefWidth="253.0">
          <font>
             <Font size="15.0" />
          </font>
@@ -64,20 +66,21 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField layoutX="243.0" layoutY="320.0" prefHeight="32.0" prefWidth="437.0">
+      <TextField fx:id="txf_nombreAlumno" layoutX="243.0" layoutY="320.0" prefHeight="32.0" prefWidth="437.0">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Button layoutX="195.0" layoutY="375.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #33A64C;" text="Guardar" textFill="WHITE">
+      <Button fx:id="btn_guardar" layoutX="195.0" layoutY="375.0" mnemonicParsing="false" onAction="#registrarNuevaConstancia" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #33A64C;" text="Guardar" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="384.0" layoutY="375.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #DB2843;" text="Cancelar" textFill="WHITE">
+      <Button fx:id="btn_cancelar" layoutX="384.0" layoutY="375.0" mnemonicParsing="false" onAction="#salirAlMenuPrincipal" prefHeight="40.0" prefWidth="135.0" style="-fx-background-color: #DB2843;" text="Cancelar" textFill="WHITE">
          <font>
-            <Font size="15.0" />
+            <Font name="System Bold" size="15.0" />
          </font>
       </Button>
+      <ComboBox fx:id="cmb_carrera" layoutX="514.0" layoutY="269.0" prefHeight="35.0" prefWidth="161.0" promptText="Carrera" stylesheets="@ComboBoxEstilo.css" />
    </children>
 </AnchorPane>
