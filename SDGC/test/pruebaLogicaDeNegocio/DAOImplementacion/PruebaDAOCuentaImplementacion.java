@@ -24,10 +24,10 @@ public class PruebaDAOCuentaImplementacion {
     public void pruebaRegistrarUsuarioExitosa() {
         Cuenta usuarioPrueba = new Cuenta();
         DAOCuentaImplementacion implementacion = new DAOCuentaImplementacion();
-        usuarioPrueba.setNombreUsuario("profesorpruebauno@gmail.com");
+        usuarioPrueba.setNombreUsuario("cuentaadmin@gmail.com");
         usuarioPrueba.setContrasenia("Contrasenia123*");
-        usuarioPrueba.setTipoDeUsuario("Profesor");
-        usuarioPrueba.setIdTipoDeUsuario(2);
+        usuarioPrueba.setTipoDeUsuario("Administrativo");
+        usuarioPrueba.setIdTipoDeUsuario(1);
         int resultado = implementacion.RegistrarUsuario(usuarioPrueba);
         assertEquals(1, resultado);
     }

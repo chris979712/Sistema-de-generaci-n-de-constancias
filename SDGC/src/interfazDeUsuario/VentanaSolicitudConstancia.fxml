@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="ventanaSolicitudConstancia" prefHeight="450.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazDeUsuario.Controladores.VentanaSolicitudConstanciaControlador">
+<AnchorPane fx:id="ventanaSolicitudConstancia" prefHeight="450.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="interfazDeUsuario.Controladores.VentanaSolicitudConstanciaControlador">
    <children>
       <Pane layoutY="-10.0" prefHeight="90.0" prefWidth="706.0" style="-fx-background-color: #0085FC;">
          <children>
@@ -45,31 +45,41 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <Button fx:id="btn_constanciaPladea" layoutX="120.0" layoutY="203.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="195.0" style="-fx-background-color: #0085FC;" stylesheets="@BotonEstilo.css" text="Constancia &#10;PLADEA" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btn_constanciaPladea" layoutX="29.0" layoutY="205.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: grey;" stylesheets="@BotonEstilo.css" text="Constancia PLADEA" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="Arial" size="15.0" />
          </font>
       </Button>
-      <Button fx:id="btn_constanciaJurado" layoutX="120.0" layoutY="288.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="195.0" style="-fx-background-color: #0085FC;" stylesheets="@BotonEstilo.css" text="Constancia &#10;de jurado" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btn_constanciaJurado" layoutX="248.0" layoutY="251.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: #0085FC;" stylesheets="@BotonEstilo.css" text="Constancia de jurado" textAlignment="CENTER" textFill="WHITE" onAction="#solicitarConstanciaDeJurado">
          <font>
-            <Font size="20.0" />
+            <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_constanciaImparticion" layoutX="356.0" layoutY="203.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="195.0" style="-fx-background-color: #0085FC;" stylesheets="@BotonEstilo.css" text="Constancia de &#10;impartición de E.E." textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btn_constanciaImparticion" layoutX="219.0" layoutY="205.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="254.0" style="-fx-background-color: grey;" stylesheets="@BotonEstilo.css" text="Constancia de impartición de E.E." textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_constanciaProyecto" layoutX="356.0" layoutY="288.0" mnemonicParsing="false" prefHeight="69.0" prefWidth="195.0" style="-fx-background-color: #0085FC;" stylesheets="@BotonEstilo.css" text="Constancia&#10;de proyecto" textAlignment="CENTER" textFill="WHITE">
+      <Button fx:id="btn_constanciaProyecto" layoutX="489.0" layoutY="205.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="195.0" style="-fx-background-color: grey;" stylesheets="@BotonEstilo.css" text="Constancia de proyecto" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="20.0" />
+            <Font name="Arial" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btn_regresar" layoutX="585.0" layoutY="380.0" mnemonicParsing="false" onAction="#salirAlMenuPrincipal" style="-fx-background-color: #DB2843;" text="Regresar" textFill="WHITE">
+      <Button fx:id="btn_regresar" layoutX="585.0" layoutY="380.0" mnemonicParsing="false" style="-fx-background-color: #DB2843;" text="Regresar" textFill="WHITE" onAction="#regresarAlInicioDeSesion">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cmb_periodoEscolar" layoutX="357.0" layoutY="128.0" prefHeight="25.0" prefWidth="195.0" promptText="Período escolar" />
+      <ComboBox fx:id="cmb_periodoEscolar" layoutX="391.0" layoutY="117.0" prefHeight="25.0" prefWidth="195.0" promptText="Período escolar" stylesheets="@ComboBoxEstilo.css" />
+      <Pane fx:id="pane_solicitarConstanciaJurado" layoutX="148.0" layoutY="297.0" prefHeight="82.0" prefWidth="396.0" style="-fx-border-color: blue;">
+         <children>
+            <ComboBox fx:id="cmb_tipoDeParticipacion" layoutX="14.0" layoutY="17.0" prefHeight="48.0" prefWidth="226.0" promptText="Tipo de participacion" stylesheets="@ComboBoxEstilo.css" />
+            <Button fx:id="btn_solicitar" layoutX="274.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Solicitar" textFill="WHITE" onAction="#SolicitarConstanciaDeJurado">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
