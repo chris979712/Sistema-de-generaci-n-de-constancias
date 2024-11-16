@@ -17,12 +17,14 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import logicaDeNegocio.Utilidades.GeneradorDeContrasenias;
 import logicaDeNegocio.Clases.CategoriaDeContratacion;
 import logicaDeNegocio.Clases.Profesor;
 import logicaDeNegocio.Clases.TipoDeContratacion;
 import logicaDeNegocio.DAOImplementacion.DAOCategoriaDeContratacionImplementacion;
 import logicaDeNegocio.DAOImplementacion.DAOProfesorImplementacion;
 import logicaDeNegocio.DAOImplementacion.DAOTipoDeContratacionImplementacion;
+import logicaDeNegocio.EnvioDeCorreos.EnvioDeCorreo;
 
 public class VentanaRegistroDocenteControlador implements Initializable {
     private Stage escenario;    
@@ -68,13 +70,18 @@ public class VentanaRegistroDocenteControlador implements Initializable {
         if(verificarCampos()){
             Profesor profesor=obtenerProfesor();
             DAOProfesorImplementacion daoProfesor=new DAOProfesorImplementacion();
-            //Generador de contraseña al azar siguiendo politica y enviar correo
+            String contrasenia = GeneradorDeContrasenias.generarContraseña();
             int resultadoProfesorDuplicado=daoProfesor.VerificarDuplicidadDeProfesor(profesor);
             switch(resultadoProfesorDuplicado){
                 case 0:
                     int resultadoRegistro=daoProfesor.RegistrarProfesor(profesor, "Contrasenia123*");
                     if(resultadoRegistro==1){
-                        Alertas.mostrarRegistroDocenteExitoso();                      
+                        int resultadoCorreo = mandarCorreo(profesor.getCorreoInstitucional(), contrasenia);
+                        if(resultadoCorreo == 1){
+                            Alertas.mostrarRegistroDocenteExitoso("Se ha el registrado profesor y se han enviado las credenciales de acceso exitosamente al correo ingresado."); 
+                        }else{
+                            Alertas.mostrarRegistroDocenteExitoso("Se ha registrado el profesor pero no se ha podido mandar las credenciales de acceso.");     
+                        }                     
                     }else{
                         Alertas.mostrarMensajeErrorEnLaConexion();                
                     }
@@ -91,6 +98,21 @@ public class VentanaRegistroDocenteControlador implements Initializable {
         {
             Alertas.mostrarMensajeDatosInvalidos();
         }        
+    }
+    
+    private int mandarCorreo(String usuario, String contrasenia) {
+        int resultadoEnvioDeCorreo;
+        EnvioDeCorreo mandarCorreoCreacionDeUsuario = new EnvioDeCorreo();
+        String asuntoCorreo = "Clave de acceso sistema de generación de constancias";
+        String cuerpoCorreo = "Se le ha registrado dentro del sistema de generación de constancias. \n\n"
+                + "A continuación se le presentan sus claves de acceso para acceder al sistema: \n\n"
+                + "Usuario: " + usuario + "\n\nContraseña: " + contrasenia + "\nBuen día\nAtte: SDGC";
+        String destinatario = usuario;
+        mandarCorreoCreacionDeUsuario.setAsunto(asuntoCorreo);
+        mandarCorreoCreacionDeUsuario.setContenido(cuerpoCorreo);
+        mandarCorreoCreacionDeUsuario.setDestinatario(destinatario);
+        resultadoEnvioDeCorreo = mandarCorreoCreacionDeUsuario.enviarCorreo();
+        return resultadoEnvioDeCorreo;
     }
     
     public void salirAlMenuPrincipal(){
