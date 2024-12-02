@@ -42,7 +42,11 @@ public class ConstanciaImplementacion {
     public Document crearInformeDeColaboracion(Profesor profesor,List<TrabajoRecepcional> trabajos){
         Document informeColaboracion = new Document();
         informeColaboracion.setMargins(50, 50, 50, 50);
-        String rutaInforme = "C:\\Users\\chris\\OneDrive\\Escritorio\\Constancia"+profesor.getNombre()+profesor.getPrimerApellido()+profesor.getSegundoApellido()+".pdf";
+        String rutaDescargas = System.getProperty("user.home") + File.separator + "Downloads";
+        String rutaInforme = rutaDescargas + File.separator + 
+                         "Constancia_" + profesor.getNombre() + "_" + 
+                         profesor.getPrimerApellido() + "_" + 
+                         profesor.getSegundoApellido() + ".pdf";
         try{
             PdfWriter pdfEscritor = PdfWriter.getInstance(informeColaboracion,new FileOutputStream(rutaInforme));
             Paragraph tituloInforme = obtenerTituloDeInforme();
@@ -52,8 +56,6 @@ public class ConstanciaImplementacion {
             Paragraph separador = new Paragraph();
             separador.add(" \n");
             informeColaboracion.open();
-            //Rectangle bordeDePagina = crearBordeDelInforme(informeColaboracion);
-            //informeColaboracion.add(bordeDePagina);
             informeColaboracion.add(tituloInforme);
             informeColaboracion.add(cuerposDeInforme[0]);
             informeColaboracion.add(cuerposDeInforme[1]);
@@ -71,20 +73,6 @@ public class ConstanciaImplementacion {
         }
         return informeColaboracion;
     }
-    
-    /*
-        public Rectangle crearBordeDelInforme(Document informeColaboracion){
-            float margenIzquierdo = informeColaboracion.leftMargin() - 10;
-            float margenDerecho = informeColaboracion.getPageSize().getWidth() - informeColaboracion.rightMargin() + 10;
-            float margenSuperior = informeColaboracion.getPageSize().getHeight() - informeColaboracion.topMargin() + 10;
-            float margenInferior = informeColaboracion.bottomMargin() -10 ;
-            Rectangle bordePagina = new Rectangle(margenIzquierdo, margenInferior, margenDerecho, margenSuperior);
-            bordePagina.setBorder(Rectangle.BOX);
-            bordePagina.setBorderColor(BaseColor.BLACK);
-            bordePagina.setBorderWidth(2);
-            return bordePagina;
-        }
-    */
  
     public PdfPTable obtenerTrabajoRecepcionalDeInforme(List<TrabajoRecepcional> trabajos) throws DocumentException, IOException{
         PdfPTable tablaActividades = new PdfPTable(5);

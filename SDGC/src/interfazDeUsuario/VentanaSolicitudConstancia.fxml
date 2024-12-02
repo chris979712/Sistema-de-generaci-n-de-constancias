@@ -74,7 +74,7 @@
       <Pane fx:id="pane_solicitarConstanciaJurado" layoutX="148.0" layoutY="297.0" prefHeight="82.0" prefWidth="396.0" style="-fx-border-color: blue;">
          <children>
             <ComboBox fx:id="cmb_tipoDeParticipacion" layoutX="14.0" layoutY="17.0" prefHeight="48.0" prefWidth="226.0" promptText="Tipo de participacion" stylesheets="@ComboBoxEstilo.css" />
-            <Button fx:id="btn_solicitar" layoutX="274.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Solicitar" textFill="WHITE" onAction="#SolicitarConstanciaDeJurado">
+            <Button fx:id="btn_solicitar" layoutX="274.0" layoutY="26.0" mnemonicParsing="false" style="-fx-background-color: green;" text="Generar" textFill="WHITE" onAction="#SolicitarConstanciaDeJurado">
                <font>
                   <Font size="15.0" />
                </font>

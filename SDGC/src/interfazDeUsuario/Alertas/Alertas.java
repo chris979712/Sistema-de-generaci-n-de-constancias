@@ -20,6 +20,42 @@ public class Alertas extends Application {
         });
     }
     
+    public static void mostrarMensajeConstanciaGenerada(){
+        Platform.runLater(() -> {
+            Alert mensaje = new Alert(AlertType.CONFIRMATION);
+            mensaje.setTitle("Constancia generada");
+            mensaje.setContentText("La constancia se ha generado de manera éxitosa y se ha guardado en la carpeta de descargas.");
+            mensaje.showAndWait();
+        });
+    }
+    
+    public static void mostrarMensajeNoSePudoCrearLaConstancia(){
+        Platform.runLater(() -> {
+            Alert mensaje = new Alert(AlertType.ERROR);
+            mensaje.setTitle("Error en la creación de constancia");
+            mensaje.setContentText("La constancia no se ha podido generar.");
+            mensaje.showAndWait();
+        });
+    }
+    
+    public static void mostrarMensajeOpcionesSinSeleccionar(String mensajeAlerta){
+        Platform.runLater(() -> {
+            Alert mensaje = new Alert(AlertType.ERROR);
+            mensaje.setTitle("Datos sin seleccionar");
+            mensaje.setContentText(mensajeAlerta);
+            mensaje.showAndWait();
+        });
+    }
+    
+    public static void mostrarMensajeSinTrabajosRecepcionalesAsociados(){
+        Platform.runLater(() -> {
+            Alert mensaje = new Alert(AlertType.WARNING);
+            mensaje.setTitle("Datos sin seleccionar");
+            mensaje.setContentText("Usted no ha participado en ningún trabajo recepcional asociado al tipo y periodo escolar seleccionado.");
+            mensaje.showAndWait();
+        });
+    }
+    
     public static void mostrarMensajeUsuarioInvalido(){
         Platform.runLater(() -> {
             Alert mensaje = new Alert(AlertType.ERROR);
@@ -102,11 +138,11 @@ public class Alertas extends Application {
         });
     }
     
-    public static void mostrarRegistroDocenteExitoso(){
+    public static void mostrarRegistroDocenteExitoso(String mensajeAMostrar){
         Platform.runLater(() -> {
             Alert mensaje = new Alert(AlertType.INFORMATION);
             mensaje.setTitle("Registro de docente exitoso");
-            mensaje.setContentText("El docente fue registrado correctamente");
+            mensaje.setContentText(mensajeAMostrar);
             mensaje.showAndWait();
         });
     }      
